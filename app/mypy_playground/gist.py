@@ -21,7 +21,7 @@ async def create_gist(source: str) -> Optional[Dict[str, str]]:
     headers = {
         "Authorization": f"token {options.github_token}",
         "Content-Type": "application/json",
-        "User-Agent": "mypy-playground"  # TODO: Better UA w/ version?
+        "User-Agent": "crosshair-playground"  # TODO: Better UA w/ version?
     }
 
     client = AsyncHTTPClient()

@@ -15,7 +15,7 @@ static_dir = root_dir / "static"
 templates_dir = root_dir / "static"
 
 define("docker_images",
-       default="latest:ymyzk/mypy-playground-sandbox:latest",
+       default="0.1:pschanely/crosshair-playground-sandbox:0.1",
        help="Docker image used by DockerSandbox")
 define("sandbox_concurrency", default=3,
        help="The number of running sandboxes at the same time")
@@ -23,8 +23,8 @@ define("ga_tracking_id", default=None, help="Google Analytics tracking ID")
 define("github_token", default=None,
        help="GitHub API token for creating gists")
 define("mypy_versions",
-       default="mypy latest:latest",
-       help="List of mypy versions used by a sandbox")
+       default="CrossHair latest:0.1",
+       help="List of CrossHair versions used by a sandbox")
 define("port", default=8080, help="Port number")
 define("debug", default=False, help="Debug mode")
 

@@ -49,7 +49,7 @@ class Header extends React.Component {
     return (
       <header>
         <Navbar dark expand="lg">
-          <NavbarBrand href="/" className="h1 mb-0">mypy Playground</NavbarBrand>
+          <NavbarBrand href="/" className="h1 mb-0">CrossHair Playground</NavbarBrand>
           <NavbarToggler onClick={() => this.toggle('navbar')} />
           <Collapse navbar isOpen={this.state.navbarIsOpen}>
             <Form inline className="my-2 my-lg-0 mr-auto">
@@ -65,19 +65,6 @@ class Header extends React.Component {
                 {
                   context.mypy_versions.map(([name, id]) => (
                     <option key={id} value={id}>{ name }</option>
-                  ))
-                }
-              </Input>
-              <Input
-                type="select"
-                className="mr-sm-2"
-                title="Python Version (--python--version)"
-                value={config.pythonVersion}
-                onChange={e => onConfigChange({ pythonVersion: e.target.value })}
-              >
-                {
-                  context.python_versions.map(ver => (
-                    <option key={ver} value={ver}>Python { ver }</option>
                   ))
                 }
               </Input>
@@ -128,15 +115,17 @@ class Header extends React.Component {
           </ModalFooter>
         </Modal>
         <Modal isOpen={this.state.aboutIsOpen} toggle={() => this.toggle('about')}>
-          <ModalHeader toggle={() => this.toggle('about')}>About the mypy Playground</ModalHeader>
+          <ModalHeader toggle={() => this.toggle('about')}>About the CrosHair Playground</ModalHeader>
           <ModalBody>
             <p>
-              The mypy Playground is a web service that receives a Python program with type hints,
-              runs mypy inside a sandbox, then returns the output.
+              The CrossHair Playground is a web service that receives a Python program with type hints,
+              runs <a href="https://github.com/pschanely/CrossHair">CrossHair</a> inside a sandbox, then returns the output.
             </p>
             <p>
-              This project is an open source project started by <a href="https://www.ymyzk.com">Yusuke Miyazaki (@ymyzk)</a>.
-              Source code is available at <a href="https://github.com/ymyzk/mypy-playground">GitHub</a>.
+            This project is <a href="https://github.com/pschanely/mypy-playground">forked from</a>, and nearly identical to
+	    <a href="https://mypy-play.net/">mypy Playground</a> by
+	    <a href="https://www.ymyzk.com">Yusuke Miyazaki (@ymyzk)</a>.
+            Source code is available at <a href="https://github.com/pschanely/crosshair-playground">GitHub</a>.
             </p>
           </ModalBody>
           <ModalFooter>

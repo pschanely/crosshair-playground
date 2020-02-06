@@ -8,7 +8,7 @@ COPY Pipfile Pipfile.lock /tmp/
 RUN pipenv lock -r > requirements.txt
 
 
-FROM python:3.7-slim
+FROM python:3.7
 
 WORKDIR /tmp
 COPY --from=0 /tmp/requirements.txt /tmp/
@@ -18,4 +18,4 @@ RUN pip install -r requirements.txt \
         && rm -rf /root/.cache
 
 USER nobody
-CMD ["mypy"]
+CMD ["crosshair" "check"]

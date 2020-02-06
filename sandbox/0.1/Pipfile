@@ -4,7 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mypy = "==0.650"
+crosshair = {git = "https://github.com/pschanely/crosshair", ref = "master"}
+mypy = "==0.761"
+typing-extensions = "*"
 
 [dev-packages]
 

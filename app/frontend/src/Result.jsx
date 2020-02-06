@@ -3,7 +3,7 @@ import React from 'react';
 function Result({ result }) {
   switch (result.status) {
     case 'ready':
-      return 'Welcome to mypy Playground!';
+      return 'Welcome to CrossHair Playground!';
     case 'running':
       return 'Running...';
     case 'succeeded':

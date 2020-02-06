@@ -13,18 +13,13 @@ from .utils import get_mypy_versions
 
 
 logger = logging.getLogger(__name__)
-initial_code = """from typing import Iterator
+initial_code = """
+def make_bigger(n: int) -> int:
+  '''
+  post: __return__ != 100
+  '''
+  return 2 * n + 10
 
-
-def fib(n: int) -> Iterator[int]:
-    a, b = 0, 1
-    while a < n:
-        yield a
-        a, b = b, a + b
-
-
-fib(10)
-fib("10")
 """
 
 

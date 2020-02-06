@@ -16,38 +16,13 @@ from .utils import parse_option_as_dict
 
 ARGUMENT_FLAGS_NORMAL = (
     "verbose",
-    "ignore-missing-imports",
-    "show-error-context",
-    "stats",
-    "inferstats",
-    "scripts-are-modules",
-    "show-column-numbers",
 )
 
 ARGUMENT_FLAGS_STRICT = (
-    "strict",
-    "check-untyped-defs",
-    "disallow-any-decorated",
-    "disallow-any-expr",
-    "disallow-any-explicit",
-    "disallow-any-generics",
-    "disallow-any-unimported",
-    "disallow-incomplete-defs",
-    "disallow-subclassing-any",
-    "disallow-untyped-calls",
-    "disallow-untyped-decorators",
-    "disallow-untyped-defs",
-    "no-strict-optional",
-    "no-warn-no-return",
-    "warn-incomplete-stub",
-    "warn-redundant-casts",
-    "warn-return-any",
-    "warn-unused-configs",
-    "warn-unused-ignores",
 )
 
 ARGUMENT_FLAGS = ARGUMENT_FLAGS_NORMAL + ARGUMENT_FLAGS_STRICT
-PYTHON_VERSIONS = ["3.8", "3.7", "3.6", "3.5", "3.4", "3.3", "2.7"]
+PYTHON_VERSIONS = ["3.8"]
 
 logger = logging.getLogger(__name__)
 
@@ -111,12 +86,13 @@ class DockerSandbox(AbstractSandbox):
                             ) -> Optional[Result]:
         docker_image = self.get_docker_image(mypy_version)
         if docker_image is None:
-            logger.error(f"cannot find a docker image for mypy version: {mypy_version}")
+            logger.error(f"cannot find a docker image for crosshair version: {mypy_version}")
             return None
 
-        cmd = ["mypy", "--cache-dir", "/dev/null", "--no-site-packages"]
-        if python_version:
-            cmd += ["--python-version", f"{python_version}"]
+        #cmd = ["mypy", "--cache-dir", "/dev/null", "--no-site-packages"]
+        cmd = ["crosshair", "check"]
+        #if python_version:
+        #    cmd += ["--python-version", f"{python_version}"]
         for key, value in kwargs.items():
             if key in ARGUMENT_FLAGS:
                 cmd.append(f"--{key}")

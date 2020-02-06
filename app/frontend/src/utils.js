@@ -8,7 +8,7 @@ export function parseMessages(stdout) {
     const type = types[level];
     return type || 'error';
   };
-  const matcher = /^main\.py:(\d+): (\w+): (.+)/;
+  const matcher = /^\/tmp\/main\.py:(\d+):(\w+):(.+)/;
   return stdout.split('\n').map((m) => {
     const match = m.match(matcher);
     return match ? {
