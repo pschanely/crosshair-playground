@@ -118,14 +118,18 @@ class Header extends React.Component {
           <ModalHeader toggle={() => this.toggle('about')}>About the CrosHair Playground</ModalHeader>
           <ModalBody>
             <p>
-              The CrossHair Playground is a web service that receives a Python program with type hints,
-              runs <a href="https://github.com/pschanely/CrossHair">CrossHair</a> inside a sandbox, then returns the output.
+              The CrossHair Playground is a web service that receives a Python program with type
+              hints, runs <a href="https://github.com/pschanely/CrossHair">CrossHair</a> inside
+              a sandbox, then returns the output.
             </p>
             <p>
-            This project is <a href="https://github.com/pschanely/mypy-playground">forked from</a>, and nearly identical to
-	    <a href="https://mypy-play.net/">mypy Playground</a> by
-	    <a href="https://www.ymyzk.com">Yusuke Miyazaki (@ymyzk)</a>.
-            Source code is available at <a href="https://github.com/pschanely/crosshair-playground">GitHub</a>.
+              This project is
+              <a href="https://github.com/pschanely/mypy-playground">forked from</a>,
+              and nearly identical to
+              <a href="https://mypy-play.net/">mypy Playground</a> by
+              <a href="https://www.ymyzk.com">Yusuke Miyazaki (@ymyzk)</a>.
+              Source code is available at
+              <a href="https://github.com/pschanely/crosshair-playground">GitHub</a>.
             </p>
           </ModalBody>
           <ModalFooter>
