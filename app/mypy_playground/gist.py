@@ -10,7 +10,7 @@ API_ENDPOINT = "https://api.github.com/gists"
 
 async def create_gist(source: str) -> Optional[Dict[str, str]]:
     data = {
-      "description": "Shared via mypy Playground",
+      "description": "Shared via CrossHair Playground",
       "public": True,
       "files": {
         "main.py": {

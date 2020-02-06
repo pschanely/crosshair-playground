@@ -124,12 +124,10 @@ class Header extends React.Component {
             </p>
             <p>
               This project is
-              <a href="https://github.com/pschanely/mypy-playground">forked from</a>,
+              <a href="https://github.com/pschanely/crosshair-playground">forked</a> from,
               and nearly identical to
               <a href="https://mypy-play.net/">mypy Playground</a> by
               <a href="https://www.ymyzk.com">Yusuke Miyazaki (@ymyzk)</a>.
-              Source code is available at
-              <a href="https://github.com/pschanely/crosshair-playground">GitHub</a>.
             </p>
           </ModalBody>
           <ModalFooter>

@@ -22,7 +22,7 @@ module.exports = {
       {
         hot: false,
         html: {
-          title: 'mypy Playground',
+          title: 'CrossHair Playground',
           bodyHtmlSnippet: '<script id="context" type="application/json">{% raw context %}</script>',
         },
         publicPath: "/static/"
