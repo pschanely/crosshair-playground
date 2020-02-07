@@ -49,7 +49,16 @@ class Header extends React.Component {
     return (
       <header>
         <Navbar dark expand="lg">
-          <NavbarBrand href="/" className="h1 mb-0">CrossHair Playground</NavbarBrand>
+          <NavbarBrand href="/" className="h1 mb-0">
+            <span> CrossHair Playground</span>
+            <svg height={71} width={33} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+              <image
+                xlinkHref="https://raw.githubusercontent.com/pschanely/CrossHair/master/doc/logo.png"
+                height={71}
+                width={33}
+              />
+            </svg>
+          </NavbarBrand>
           <NavbarToggler onClick={() => this.toggle('navbar')} />
           <Collapse navbar isOpen={this.state.navbarIsOpen}>
             <Form inline className="my-2 my-lg-0 mr-auto">
@@ -58,9 +67,9 @@ class Header extends React.Component {
               <Input
                 type="select"
                 className="mr-sm-2"
-                title="mypy Version"
-                value={config.mypyVersion}
-                onChange={e => onConfigChange({ mypyVersion: e.target.value })}
+                title="CrossHair Version"
+                value={config.crosshairVersion}
+                onChange={e => onConfigChange({ crosshairVersion: e.target.value })}
               >
                 {
                   context.mypy_versions.map(([name, id]) => (
@@ -123,10 +132,11 @@ class Header extends React.Component {
               a sandbox, then returns the output.
             </p>
             <p>
-              This project is
-              <a href="https://github.com/pschanely/crosshair-playground">forked</a> from,
-              and nearly identical to
-              <a href="https://mypy-play.net/">mypy Playground</a> by
+              <span>This project is </span>
+              <a href="https://github.com/pschanely/crosshair-playground">forked</a>
+              <span> from, and nearly identical to </span>
+              <a href="https://mypy-play.net/">mypy Playground</a>
+              <span> by </span>
               <a href="https://www.ymyzk.com">Yusuke Miyazaki (@ymyzk)</a>.
             </p>
           </ModalBody>

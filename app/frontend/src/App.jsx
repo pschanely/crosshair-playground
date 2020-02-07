@@ -40,8 +40,8 @@ export default class App extends Component {
     const params = new URLSearchParams(window.location.search);
     // Load configurations
     const diff = {};
-    if (params.has('mypy')) {
-      diff.mypyVersion = params.get('mypy');
+    if (params.has('crosshair')) {
+      diff.crosshairVersion = params.get('crosshair');
     }
     if (params.has('python')) {
       diff.pythonVersion = params.get('python');
@@ -72,8 +72,8 @@ export default class App extends Component {
     if (prevState.config !== this.state.config) {
       const flags = [];
       Object.entries(this.state.config).forEach(([k, v]) => {
-        if (k === 'mypyVersion') {
-          params.set('mypy', v);
+        if (k === 'crosshairVersion') {
+          params.set('crosshair', v);
         } else if (k === 'pythonVersion') {
           params.set('python', v);
         } else if (v) {

@@ -1,6 +1,6 @@
 # CrossHair Playground
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pschanely/mypy-playground/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pschanely/crosshair-playground/blob/master/LICENSE)
 
 **The CrossHair playgrund** provides Web UI to run [CrossHair](https://github.com/pschanely/CrossHair) in a sandbox. Try it out here: https://crosshair-web.org
 

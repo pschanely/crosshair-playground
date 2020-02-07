@@ -12,6 +12,10 @@ header {
     flex: 0 0;
 }
 
+svg {
+    margin: 0 0.5em;
+}
+
 #editor {
     flex: 1 1 60%;
 }
@@ -24,18 +28,16 @@ header {
 }
 
 .navbar {
-    background-color: #2d618c;
+    background-color: #683e8e;
 }
 
 .navbar #run {
-    background-color: #ffd343;
-    border-color: #ffd343;
+    background-color: #689B9F;
+    border-color:     #689B9F;
 }
 
 /* We use default :focus effect now */
 .navbar #run:hover {
-    /* darken 10% */
-    background-color: #e5b93e;
-    /* darken 12% */
-    border-color: #e0b53d;
+    background-color: #487B7F;
+    border-color:     #487B7F;
 }

@@ -1,22 +1,42 @@
 import React from 'react';
 
 function Result({ result }) {
+  let message = '';
   switch (result.status) {
     case 'ready':
-      return 'Welcome to CrossHair Playground!';
+      return (
+        <div>
+          <span>This is a web interface for the </span>
+          <a href="https://github.com/pschanely/CrossHair">CrossHair</a>
+          <span> static analysis tool.</span>
+        </div>
+      );
     case 'running':
       return 'Running...';
     case 'succeeded':
+      if (result.result.exit_code === 0) {
+        message = (
+          <div>
+            <span>No counterexamples found.</span>
+            <br />
+            <span>Hoping to find something? File a </span>
+            <a href="https://github.com/pschanely/CrossHair/issues/new?labels=missed%20bug&template=feature_request.md">missed bug</a>
+            <span> report.</span>
+          </div>
+        );
+      } else {
+        message = (
+          <div>
+            <span>Found a problem! </span>
+            <span>(Is a counterexample wrong? Please file a </span>
+            <a href="https://github.com/pschanely/CrossHair/issues/new?labels=false%20alarm&template=bug_report.md">false alarm</a>
+            <span> report!)</span>
+          </div>
+        );
+      }
       return (
         <div>
-          {
-            result.result.exit_code === 0 ?
-              <span>Succeeded!! ({ result.result.duration } ms)</span> :
-              <span>
-                Failed (exit code: { result.result.exit_code })
-                ({ result.result.duration } ms)
-              </span>
-          }
+          { message }
           <hr />
           <pre>{ result.result.stdout }</pre>
           <pre>{ result.result.stderr }</pre>

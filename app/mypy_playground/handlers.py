@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 initial_code = """
 def make_bigger(n: int) -> int:
   '''
-  post: __return__ != 100
+  post: __return__ != 0
   '''
   return 2 * n + 10
 
@@ -27,7 +27,7 @@ class IndexHandler(tornado.web.RequestHandler):
     async def get(self) -> None:
         mypy_versions = get_mypy_versions()
         default: Dict[str, Union[bool, str]] = {flag: False for flag in sandbox.ARGUMENT_FLAGS}
-        default["mypyVersion"] = mypy_versions[0][1]
+        default["crosshairVersion"] = mypy_versions[0][1]
         default["pythonVersion"] = sandbox.PYTHON_VERSIONS[0]
         context = {
             "defaultConfig": default,
@@ -93,7 +93,7 @@ class TypecheckHandler(JsonRequestHandler):
             if flag_value is not None and flag_value is True:
                 args[flag] = flag_value
 
-        mypy_version = json.get("mypyVersion")
+        mypy_version = json.get("crosshairVersion")
         if mypy_version is None:
             mypy_version = get_mypy_versions()[0][1]
         args["mypy_version"] = mypy_version
