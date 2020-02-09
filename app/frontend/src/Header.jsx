@@ -72,7 +72,7 @@ class Header extends React.Component {
                   Examples
 	        </DropdownToggle>
 	        <DropdownMenu>
-                  <DropdownItem tag="a" href="?gist=93f54161c4bda3a3bf93fe7f7d598d29">String slicing</DropdownItem>
+                  <DropdownItem tag="a" href="?gist=32b84aee61b433c540392632d0754251">Rolling averages</DropdownItem>
                   <DropdownItem tag="a" href="?gist=344bc539abb164fe7acd3eb456f13295">Exception discovery</DropdownItem>
                   <DropdownItem tag="a" href="?gist=c242184656f086dc2d18d41dacec7df1">Hash consistent with equals</DropdownItem>
                 </DropdownMenu>
