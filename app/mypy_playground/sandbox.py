@@ -16,6 +16,7 @@ from .utils import parse_option_as_dict
 
 ARGUMENT_FLAGS_NORMAL = (
     "verbose",
+    "per_condition_timeout=5",
 )
 
 ARGUMENT_FLAGS_STRICT = (

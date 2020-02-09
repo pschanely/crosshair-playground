@@ -103,7 +103,7 @@ class Header extends React.Component {
             </Form>
           </Collapse>
         </Navbar>
-        <Modal isOpen={this.state.optionsIsOpen} toggle={() => this.toggle('options')}>
+        <Modal size="lg" isOpen={this.state.optionsIsOpen} toggle={() => this.toggle('options')}>
           <ModalHeader toggle={() => this.toggle('options')}>
             Options
           </ModalHeader>

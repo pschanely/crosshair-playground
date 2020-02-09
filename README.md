@@ -10,14 +10,14 @@
 - Share snippets with your friends using GitHub Gist
 
 ## Development
-1. Run `docker-compose up -d` to start an app and Docker for running CrossHair
+1. Run `docker-compose up -d --build` to start an app and Docker for running CrossHair
 2. Run `docker-compose exec docker docker pull -a pschanely/crosshair-playground-sandbox` to pull the latest sandbox images into the container.
 3. Open http://localhost:8080
 
 ## Packaging
 Package a sandbox:
 ```sh
-EXPORT VER=0.1
+export VER=0.1
 pushd sandbox/${VER}/ && pipenv update && pipenv --rm && popd
 docker build --pull -t pschanely/crosshair-playground-sandbox:${VER} ~/proj/crosshair-playground/sandbox/${VER}/ && docker push pschanely/crosshair-playground-sandbox
 ```
