@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "689ffca7334f0d90b617b840b51e220c08cf5fec97b7e9c9d75e630eb0a9878c"
+            "sha256": "dc1ec5de7498be9c0ce3f19546f5d57c84613bcc1a1a707fab5ced21bd0b983a"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.7"
+            "python_version": "3.8"
         },
         "sources": [
             {
@@ -18,7 +18,7 @@
     "default": {
         "crosshair": {
             "git": "https://github.com/pschanely/crosshair",
-            "ref": "e73b8d71de7e17b4edb4efd9abf3a0f7dec09f39"
+            "ref": "ea88f371591a5a156aba08bbccb43ebd6e16ab10"
         },
         "mypy": {
             "hashes": [

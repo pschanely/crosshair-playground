@@ -8,16 +8,6 @@ module.exports = {
   },
   use: [
     [
-      '@neutrinojs/airbnb',
-      {
-        eslint: {
-          rules: {
-            'react/prop-types': 'off',
-          }
-        }
-      }
-    ],
-    [
       '@neutrinojs/react',
       {
         hot: false,

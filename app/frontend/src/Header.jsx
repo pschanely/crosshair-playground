@@ -1,8 +1,12 @@
 import React from 'react';
 import {
   Button,
+  ButtonDropdown,
   Col,
   Collapse,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
   Form,
   FormGroup,
   Input,
@@ -62,10 +66,21 @@ class Header extends React.Component {
           <NavbarToggler onClick={() => this.toggle('navbar')} />
           <Collapse navbar isOpen={this.state.navbarIsOpen}>
             <Form inline className="my-2 my-lg-0 mr-auto">
-              <Button color="light" className="my-2 my-sm-0 mr-sm-2" id="run" disabled={status === 'running'} onClick={onRunClick}>Run</Button>
-              <Button color="light" className="my-sm-0 mr-sm-2" disabled={status === 'creating_gist'} onClick={onGistClick}>Gist</Button>
+              <Button color="light" size="sm" className="my-2 my-sm-0 mr-sm-2" id="run" disabled={status === 'running'} onClick={onRunClick}>Run</Button>
+	      <ButtonDropdown className="my-2 my-sm-0 mr-sm-2" isOpen={this.state.examplesIsOpen} toggle={() => this.toggle('examples')}>
+	        <DropdownToggle caret color="light" size="sm">
+                  Examples
+	        </DropdownToggle>
+	        <DropdownMenu>
+                  <DropdownItem tag="a" href="?gist=93f54161c4bda3a3bf93fe7f7d598d29">String slicing</DropdownItem>
+                  <DropdownItem tag="a" href="?gist=344bc539abb164fe7acd3eb456f13295">Exception discovery</DropdownItem>
+                  <DropdownItem tag="a" href="?gist=c242184656f086dc2d18d41dacec7df1">Hash consistent with equals</DropdownItem>
+                </DropdownMenu>
+	      </ButtonDropdown>
+              <Button color="light" size="sm" className="my-sm-0 mr-sm-2" disabled={status === 'creating_gist'} onClick={onGistClick}>Gist</Button>
               <Input
                 type="select"
+		bsSize="sm"
                 className="mr-sm-2"
                 title="CrossHair Version"
                 value={config.crosshairVersion}
@@ -77,12 +92,12 @@ class Header extends React.Component {
                   ))
                 }
               </Input>
-              <Button color="light" className="my-2 my-sm-0" data-toggle="modal" data-target="#options-modal" onClick={() => this.toggle('options')}>
+              <Button color="light" size="sm" className="my-2 my-sm-0" data-toggle="modal" data-target="#options-modal" onClick={() => this.toggle('options')}>
                 Options
               </Button>
             </Form>
             <Form className="form-inline my-2 my-lg-0">
-              <Button color="light" className="my-2 my-sm-0" data-toggle="modal" data-target="#about-modal" onClick={() => this.toggle('about')}>
+              <Button color="light" size="sm" className="my-2 my-sm-0" data-toggle="modal" data-target="#about-modal" onClick={() => this.toggle('about')}>
                 About
               </Button>
             </Form>
