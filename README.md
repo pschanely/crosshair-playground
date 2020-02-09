@@ -11,8 +11,24 @@
 
 ## Development
 1. Run `docker-compose up -d` to start an app and Docker for running CrossHair
-2. Run `docker-compose exec docker docker build --pull -t pschanely/crosshair-playground-sandbox:0.1 /sandbox/0.1` to build a Docker image
+2. Run `docker-compose exec docker docker pull -a pschanely/crosshair-playground-sandbox` to pull the latest sandbox images into the container.
 3. Open http://localhost:8080
+
+## Packaging
+Package a sandbox:
+```sh
+EXPORT VER=0.1
+pushd sandbox/${VER}/ && pipenv update && pipenv --rm && popd
+docker build --pull -t pschanely/crosshair-playground-sandbox:${VER} ~/proj/crosshair-playground/sandbox/${VER}/ && docker push pschanely/crosshair-playground-sandbox
+```
+Package the frontend & backend:
+```sh
+docker build -f ~/proj/crosshair-playground/app/Dockerfile-prod -t pschanely/crosshair-playground:latest ~/proj/crosshair-playground/app/ && docker push pschanely/crosshair-playground
+```
+Deploy a package:
+```sh
+cd crosshair-playground/ && docker-compose pull && docker-compose down && docker-compose up -d && docker-compose exec docker docker pull -a pschanely/crosshair-playground-sandbox
+```
 
 ## Components
 - [app](app): Application server
