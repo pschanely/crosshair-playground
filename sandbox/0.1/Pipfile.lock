@@ -18,7 +18,7 @@
     "default": {
         "crosshair": {
             "git": "https://github.com/pschanely/crosshair",
-            "ref": "ea88f371591a5a156aba08bbccb43ebd6e16ab10"
+            "ref": "7d5701521e16bf3dde342b746b6856ce545e6796"
         },
         "mypy": {
             "hashes": [

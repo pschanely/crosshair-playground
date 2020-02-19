@@ -17,8 +17,7 @@
 ## Packaging
 Package a sandbox:
 ```sh
-export VER=0.1
-pushd sandbox/${VER}/ && pipenv update && pipenv --rm && popd
+export VER=0.1 && pushd sandbox/${VER}/ && (pipenv update && pipenv --rm) ; popd
 docker build --pull -t pschanely/crosshair-playground-sandbox:${VER} ~/proj/crosshair-playground/sandbox/${VER}/ && docker push pschanely/crosshair-playground-sandbox
 ```
 Package the frontend & backend:

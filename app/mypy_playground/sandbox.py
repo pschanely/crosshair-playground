@@ -90,8 +90,7 @@ class DockerSandbox(AbstractSandbox):
             logger.error(f"cannot find a docker image for crosshair version: {mypy_version}")
             return None
 
-        #cmd = ["mypy", "--cache-dir", "/dev/null", "--no-site-packages"]
-        cmd = ["crosshair", "check"]
+        cmd = ["timeout", "35s", "crosshair", "check"]
         #if python_version:
         #    cmd += ["--python-version", f"{python_version}"]
         for key, value in kwargs.items():
