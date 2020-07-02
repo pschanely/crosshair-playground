@@ -1,21 +1,11 @@
 FROM python:3.8-slim
 
-RUN pip install -U pipenv
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends gcc libc-dev tk
 
 WORKDIR /tmp
-COPY Pipfile Pipfile.lock /tmp/
 
-RUN pipenv lock -r > requirements.txt
-
-
-FROM python:3.8
-
-WORKDIR /tmp
-COPY --from=0 /tmp/requirements.txt /tmp/
-
-RUN pip install -r requirements.txt \
-        && rm -rf /tmp/requirements.txt \
-        && rm -rf /root/.cache
+RUN pip install crosshair-tool==0.0.6
 
 USER nobody
-CMD ["crosshair" "check"]
+CMD ["/usr/local/bin/crosshair", "check"]
