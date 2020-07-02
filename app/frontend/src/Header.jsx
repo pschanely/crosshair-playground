@@ -76,6 +76,7 @@ class Header extends React.Component {
                   <DropdownItem tag="a" href="?gist=344bc539abb164fe7acd3eb456f13295">Exception discovery</DropdownItem>
                   <DropdownItem tag="a" href="?gist=c242184656f086dc2d18d41dacec7df1">Hash consistent with equals</DropdownItem>
                   <DropdownItem tag="a" href="?gist=32b84aee61b433c540392632d0754251">Rolling averages</DropdownItem>
+                  <DropdownItem tag="a" href="?gist=5c8cfb1f2806d3840a269b17357c900d">Regular expressions</DropdownItem>
                 </DropdownMenu>
 	      </ButtonDropdown>
               <Button color="light" size="sm" className="my-sm-0 mr-sm-2" disabled={status === 'creating_gist'} onClick={onGistClick}>Gist</Button>
