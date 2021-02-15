@@ -57,7 +57,7 @@ class Header extends React.Component {
             <span> CrossHair Playground</span>
             <svg height={71} width={33} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
               <image
-                xlinkHref="https://raw.githubusercontent.com/pschanely/CrossHair/master/doc/logo.png"
+                xlinkHref="https://raw.githubusercontent.com/pschanely/CrossHair/master/doc/source/logo.png"
                 height={71}
                 width={33}
               />
