@@ -20,7 +20,7 @@ function Result({ result }) {
             <span>No counterexamples found.</span>
             <br />
             <span>Hoping to find something? File a </span>
-            <a href="https://github.com/pschanely/CrossHair/issues/new?labels=missed%20bug&template=feature_request.md">missed bug</a>
+            <a href="https://github.com/pschanely/CrossHair/issues/new?labels=missed%20bug&template=bug_report.md">missed bug</a>
             <span> report.</span>
           </div>
         );
