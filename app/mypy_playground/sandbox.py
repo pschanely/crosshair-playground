@@ -18,6 +18,7 @@ ARGUMENT_FLAGS_NORMAL = (
     "verbose",
     "report_all",
     "per_condition_timeout=5",
+    "per_path_timeout=3",
     "analysis_kind=asserts",
     "analysis_kind=hypothesis",
 )
