@@ -74,8 +74,8 @@ class Header extends React.Component {
 	        <DropdownMenu>
                   <DropdownItem tag="a" href="?gist=c8647d42431f17b217d717825d5f156b">Simple arithmetic</DropdownItem>
                   <DropdownItem tag="a" href="?gist=344bc539abb164fe7acd3eb456f13295">Exception discovery</DropdownItem>
-                  <DropdownItem tag="a" href="?gist=c242184656f086dc2d18d41dacec7df1">Hash consistent with equals</DropdownItem>
-                  <DropdownItem tag="a" href="?gist=32b84aee61b433c540392632d0754251">Rolling averages</DropdownItem>
+                  <DropdownItem tag="a" href="?gist=5edfa8ccb5050d184a43c7a068fd8091">Hash consistent with equals</DropdownItem>
+                  <DropdownItem tag="a" href="?gist=25af643aa651249bd3c6d3fdbfb09e78">Rolling averages</DropdownItem>
                   <DropdownItem tag="a" href="?gist=5c8cfb1f2806d3840a269b17357c900d">Regular expressions</DropdownItem>
                 </DropdownMenu>
 	      </ButtonDropdown>
