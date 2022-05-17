@@ -3,6 +3,7 @@ export function parseMessages(stdout) {
   const types = {
     error: 'error',
     note: 'info',
+    info: 'info',
   };
   const getType = (level) => {
     const type = types[level];
