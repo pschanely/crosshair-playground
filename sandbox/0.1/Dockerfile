@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.10-slim
 
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends gcc libc-dev tk
