@@ -53,15 +53,18 @@ export default class App extends Component {
       }
     }
     this.updateConfig(diff);
+
     // Load source
-    const source = window.localStorage.getItem('source');
-    if (source) {
-      // eslint-disable-next-line react/no-did-mount-set-state
-      this.setState({ source });
-    }
-    // Load gist
-    if (params.has('gist')) {
+    if (params.has('source')) {
+      this.setState({ source: params.get('source') });
+    } else if (params.has('gist')) {
       this.fetchGist(params.get('gist'));
+    } else {
+      const source = window.localStorage.getItem('source');
+      if (source) {
+        // eslint-disable-next-line react/no-did-mount-set-state
+        this.setState({ source });
+      }
     }
   }
 
