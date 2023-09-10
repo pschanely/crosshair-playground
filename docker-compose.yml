@@ -1,6 +1,7 @@
 version: "3"
 services:
   app:
+    platform: linux/amd64
     build:
       context: ./app
       dockerfile: Dockerfile-prod
@@ -15,6 +16,7 @@ services:
       - docker_certs:/certs
 
   docker:
+    platform: linux/amd64
     image: docker:20.10-dind
     privileged: true
     environment:
