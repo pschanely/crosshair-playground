@@ -9,8 +9,10 @@ def parse_option_as_dict(name: str) -> Dict[str, str]:
     # This function assumes that dict is insertion order-preserving
     # (Python 3.7+)
     return dict(
-        cast(List[Tuple[str, str]],
-             [tuple(i.split(":", 1)) for i in options[name].split(",")])
+        cast(
+            List[Tuple[str, str]],
+            [tuple(i.split(":", 1)) for i in options[name].split(",")],
+        )
     )
 
 

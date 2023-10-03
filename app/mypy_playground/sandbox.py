@@ -1,18 +1,17 @@
-from abc import ABC, abstractmethod
 import asyncio
-from dataclasses import dataclass
-from io import BytesIO
 import logging
-from pathlib import Path
 import tarfile
 import time
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+from io import BytesIO
+from pathlib import Path
 from typing import Any, Dict, Optional
 
 import aiodocker
 from tornado.options import options
 
 from .utils import parse_option_as_dict
-
 
 ARGUMENT_FLAGS_NORMAL = (
     "verbose",
@@ -23,8 +22,7 @@ ARGUMENT_FLAGS_NORMAL = (
     "analysis_kind=hypothesis",
 )
 
-ARGUMENT_FLAGS_STRICT = (
-)
+ARGUMENT_FLAGS_STRICT = ()
 
 ARGUMENT_FLAGS = ARGUMENT_FLAGS_NORMAL + ARGUMENT_FLAGS_STRICT
 PYTHON_VERSIONS = ["3.8"]
@@ -54,12 +52,14 @@ class AbstractSandbox(ABC):
         pass
 
     @abstractmethod
-    async def run_typecheck(self,
-                            source: str,
-                            *,
-                            mypy_version: str,
-                            python_version: Optional[str] = None,
-                            **kwargs: Any) -> Optional[Result]:
+    async def run_typecheck(
+        self,
+        source: str,
+        *,
+        mypy_version: str,
+        python_version: Optional[str] = None,
+        **kwargs: Any,
+    ) -> Optional[Result]:
         pass
 
 
@@ -82,20 +82,23 @@ class DockerSandbox(AbstractSandbox):
         stream.seek(0)
         return stream
 
-    async def run_typecheck(self,
-                            source: str,
-                            *,
-                            mypy_version: str,
-                            python_version: Optional[str] = None,
-                            **kwargs: Any
-                            ) -> Optional[Result]:
+    async def run_typecheck(
+        self,
+        source: str,
+        *,
+        mypy_version: str,
+        python_version: Optional[str] = None,
+        **kwargs: Any,
+    ) -> Optional[Result]:
         docker_image = self.get_docker_image(mypy_version)
         if docker_image is None:
-            logger.error(f"cannot find a docker image for crosshair version: {mypy_version}")
+            logger.error(
+                f"cannot find a docker image for crosshair version: {mypy_version}"
+            )
             return None
 
         cmd = ["timeout", "-k", "35s", "33s", "crosshair", "check"]
-        #if python_version:
+        # if python_version:
         #    cmd += ["--python-version", f"{python_version}"]
         for key, value in kwargs.items():
             if key in ARGUMENT_FLAGS:
@@ -112,12 +115,13 @@ class DockerSandbox(AbstractSandbox):
                     "Memory": 128 * 1024 * 1024,
                     "NetworkMode": "none",
                     "PidsLimit": 32,
-                    "SecurityOpt": ["no-new-privileges"]
-                }
+                    "SecurityOpt": ["no-new-privileges"],
+                },
             }
             c = await self.client.containers.create(config=config)
-            await c.put_archive(str(self.source_file_path.parent),
-                                self.create_archive(source))
+            await c.put_archive(
+                str(self.source_file_path.parent), self.create_archive(source)
+            )
             await c.start()
             exit_code = (await c.wait())["StatusCode"]
             stdout = "".join(await c.log(stdout=True, stderr=False)).strip()
@@ -126,10 +130,8 @@ class DockerSandbox(AbstractSandbox):
             duration = int(1000 * (time.time() - start_time))
             logger.info("finished in %d ms", duration)
             return Result(
-                exit_code=exit_code,
-                stdout=stdout,
-                stderr=stderr,
-                duration=duration)
+                exit_code=exit_code, stdout=stdout, stderr=stderr, duration=duration
+            )
         except aiodocker.exceptions.DockerError as e:
             logger.error(f"docker api error: {e}")
         # TODO: better error handling
@@ -152,10 +154,9 @@ def get_semaphore() -> asyncio.Semaphore:
     return semaphore
 
 
-async def run_typecheck_in_sandbox(sandbox: AbstractSandbox,
-                                   source: str,
-                                   **kwargs: Any
-                                   ) -> Optional[Result]:
+async def run_typecheck_in_sandbox(
+    sandbox: AbstractSandbox, source: str, **kwargs: Any
+) -> Optional[Result]:
     logger.debug("acquiring semaphore")
     async with get_semaphore():
         logger.debug("acquired semaphore")
