@@ -6,7 +6,7 @@ RUN apt-get install -y --no-install-recommends build-essential gcc libc-dev tk m
 WORKDIR /tmp
 
 RUN pip install hypothesis icontract deal numpy  # optional packages
-RUN pip install crosshair-tool==0.0.76
+RUN pip install crosshair-tool==0.0.77
 
 USER nobody
 CMD ["/usr/local/bin/crosshair", "check"]
