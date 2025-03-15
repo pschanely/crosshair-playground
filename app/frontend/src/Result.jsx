@@ -8,7 +8,7 @@ function Result({ result }) {
         <div>
           <span>This is a web interface for the </span>
           <a href="https://github.com/pschanely/CrossHair">CrossHair</a>
-          <span> static analysis tool.</span>
+          <span> concolic analysis tool.</span>
         </div>
       );
     case 'running':
