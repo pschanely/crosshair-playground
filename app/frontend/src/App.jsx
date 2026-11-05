@@ -172,7 +172,7 @@ export default class App extends Component {
         <Header
           config={this.state.config}
           status={this.state.result.status}
-          engineStatus={this.state.engine.status}
+          engine={this.state.engine}
           onLinkClick={this.shareLink}
           onRunClick={this.run}
           onStopClick={this.stop}

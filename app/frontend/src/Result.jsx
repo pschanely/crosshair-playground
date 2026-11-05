@@ -4,8 +4,6 @@ import { buildCrashIssueUrl, summarizeTraceback } from './report';
 
 function Engine({ engine }) {
   switch (engine.status) {
-    case 'loading':
-      return <div>Loading CrossHair... ({ engine.text })</div>;
     case 'failed':
       return (
         <div>

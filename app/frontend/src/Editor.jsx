@@ -1,8 +1,12 @@
 import React from 'react';
-import AceEditor from 'react-ace';
+import AceModule from 'react-ace';
 
 import 'brace/mode/python';
 import 'brace/theme/textmate';
+
+// react-ace is CommonJS with a `default` export; depending on the bundler, the
+// default import is either the component or the whole module object.
+const AceEditor = AceModule.default || AceModule;
 
 function Editor({
   annotations,
