@@ -41,3 +41,16 @@ svg {
     background-color: #487B7F;
     border-color:     #487B7F;
 }
+
+.navbar #run:disabled {
+    background-color: #9aa5a6;
+    border-color:     #9aa5a6;
+    color: #e6e6e6;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.engine-status {
+    color: #d9cfe6;
+    font-size: 0.875rem;
+}

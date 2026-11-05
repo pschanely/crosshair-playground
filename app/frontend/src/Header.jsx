@@ -54,7 +54,7 @@ class Header extends React.Component {
     const {
       config,
       status,
-      engineStatus,
+      engine,
       onLinkClick,
       onRunClick,
       onStopClick,
@@ -97,11 +97,6 @@ class Header extends React.Component {
           <NavbarToggler onClick={() => this.toggle('navbar')} />
           <Collapse navbar isOpen={this.state.navbarIsOpen}>
             <Form inline className="my-2 my-lg-0 mr-auto">
-              {
-                status === 'running'
-                  ? <Button color="danger" size="sm" className="my-2 my-sm-0 mr-sm-2" id="stop" onClick={onStopClick}>Stop</Button>
-                  : <Button color="light" size="sm" className="my-2 my-sm-0 mr-sm-2" id="run" disabled={engineStatus !== 'ready'} onClick={onRunClick}>Run</Button>
-              }
 	      <ButtonDropdown className="my-2 my-sm-0 mr-sm-2" isOpen={this.state.examplesIsOpen} toggle={() => this.toggle('examples')}>
 	        <DropdownToggle caret color="light" size="sm">
                   Examples
@@ -120,6 +115,20 @@ class Header extends React.Component {
               </Button>
             </Form>
             <Form className="form-inline my-2 my-lg-0">
+              { engine.status === 'loading' && (
+                <span className="engine-status mr-sm-2" id="engine-status">
+                  <span className="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true" />
+                  { engine.text }
+                </span>
+              ) }
+              { engine.status === 'failed' && (
+                <span className="engine-status mr-sm-2">CrossHair failed to load</span>
+              ) }
+              {
+                status === 'running'
+                  ? <Button color="danger" size="sm" className="my-2 my-sm-0 mr-sm-2" id="stop" onClick={onStopClick}>Stop</Button>
+                  : <Button color="light" size="sm" className="my-2 my-sm-0 mr-sm-2" id="run" disabled={engine.status !== 'ready'} onClick={onRunClick}>Run</Button>
+              }
               <Button color="light" size="sm" className="my-2 my-sm-0" data-toggle="modal" data-target="#about-modal" onClick={() => this.toggle('about')}>
                 About
               </Button>
